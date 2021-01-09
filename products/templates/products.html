@@ -1,0 +1,30 @@
+{%extends 'main.html'%}
+{%load static%}
+{%block content%}
+
+<style>
+    .brand_box{
+
+         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 9px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    height:430px;
+    width:350px;
+
+    padding:30px;
+
+    }
+</style>
+<body>        <div class="row">
+
+            {%for product in object_list%}
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+                        <div class="brand_box">
+                            <img src="{{product.img.url}}" alt="img" style="width:200px; height:300px"/>
+                            <h3>#<strong class="red">{{product.price}}</strong></h3>
+                            <span>{{product.name}}</span>
+                            <button><a href="{%url 'view' product.pk%}"></a></button>
+                        </div></div></div>
+                        {%endfor%}
+{%endblock%}
+</body>
+</html>

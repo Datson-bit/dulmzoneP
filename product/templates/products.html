@@ -1,0 +1,63 @@
+{%extends 'base.html'%}
+{%block content%}
+{%load static%}
+<style>
+    header{
+    display: none;
+    }
+    footer{
+    display:none;
+    }
+</style>
+
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+<!--&lt;!&ndash; Optional theme &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+
+<!--&lt;!&ndash; Latest compiled and minified JavaScript &ndash;&gt;-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+
+<body class="main-layout" style="background:whitesmoke">
+<button class="btn btn-danger"><a href="{%url 'Home'%}">Back</a></button>
+
+<div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Products</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- brand -->
+    <div class="brand">
+        <div class="container">
+
+        </div>
+    </div>
+
+                        <div class="container">
+                        </div></body>
+{%for products in object_list%}
+<center>
+                        <div class=" col-sm-3  row text-center " style=" height: 350px; background: white;">
+                        <div class="brand_box">
+                            <img src="{{products.img.url}}" alt="img" style="height:200px; width:250px"/>
+                            <h3>$<strong class="red">{{products.price}}</strong></h3>
+                            <span>{{products.name}}</span><br>
+                            <i><img src="{%static 'images/star.png'%}"/></i>
+                           <i><img src="{%static 'images/star.png'%}"/></i>
+                             <i><img src="{%static 'images/star.png'%}"/></i>
+                              <i><img src="{%static 'images/star.png'%}"/></i>
+                              <button  class="btn btn-outline-secondary">   <a class="btn btn-outline-success" href="{% url 'view' products.pk%}" style="  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">View</a></button>
+
+
+                        </div></div>
+</center>
+{%endfor%}
+
+
+{%endblock%}
