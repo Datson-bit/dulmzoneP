@@ -9,11 +9,6 @@ class Home(ListView):
     template_name = 'index.html'
 
 
-class ViewH(DetailView):
-    model = Product
-    template_name = 'product-view.html'
-
-
 def contact(request):
     return render(request, 'contact.html')
 
