@@ -1,13 +1,9 @@
 from django.urls import path
-from product.views import Home, about, contact,successView,  AllProducts, View, special, brand, contactf
-
+from product.views import Home, about, contact,  AllProducts, View, special, brand
 urlpatterns=[
     path('', Home.as_view(), name="Home"),
     path('special/', special, name="special"),
     path('about/', about, name="About"),
-    path('contactf/', contactf, name="email"),
-    path('success/', successView, name="success"),
-
     path('brand/', brand, ),
 
     path('contact/',contact, name="Contact" ),
