@@ -1,3 +1,6 @@
+
+
+
 {%extends 'base.html'%}
 {%block content%}
 {%load static%}
@@ -39,25 +42,34 @@
         </div>
     </div>
 
-                        <div class="container">
-                        </div></body>
-{%for products in object_list%}
-<center>
-                        <div class=" col-sm-3  row text-center " style=" height: 350px; background: white;">
-                        <div class="brand_box">
-                            <img src="{{products.img.url}}" alt="img" style="height:200px; width:250px"/>
-                            <h3>$<strong class="red">{{products.price}}</strong></h3>
-                            <span>{{products.name}}</span><br>
-                            <i><img src="{%static 'images/star.png'%}"/></i>
-                           <i><img src="{%static 'images/star.png'%}"/></i>
-                             <i><img src="{%static 'images/star.png'%}"/></i>
-                              <i><img src="{%static 'images/star.png'%}"/></i>
-                              <button  class="btn btn-outline-secondary">   <a class="btn btn-outline-success" href="{% url 'view' products.pk%}" style="  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">View</a></button>
+                        <div class="container"></div></body>
+   <div class="brand-bg">
+            <div class="container">
 
+                <div class="row">
+
+{%for products in object_list%}
+
+
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+                        <div class="brand_box">
+                            <img src="{{products.img.url}}" alt="img" />
+                            <h3>#<strong class="red">{{products.price}}</strong></h3>
+                            <span>{{products.name}}</span>
+
+                                                        <i><img src="{%static 'images/star.png'%}"/></i>
+                        <i><img src="{%static 'images/star.png'%}"/></i>
+                          <i><img src="{%static 'images/star.png'%}"/></i>
+                          <i><img src="{%static 'images/star.png'%}"/></i><br>
+                            <button class="btn btn-primary"><a style="color:white" href="{%url 'view' products.pk%}">View </a></button>
+
+                        </div>
+                    </div>
+                        {%endfor%}
 
                         </div></div>
 </center>
-{%endfor%}
+
 
 
 {%endblock%}
