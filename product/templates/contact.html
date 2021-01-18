@@ -1,26 +1,47 @@
 {%extends 'base.html'%}
 {%block content%}
 {%load static%}
+
 <div class="contact">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage">
-                        <h2>Contact us</h2>
+                        <center><h2>Contact us</h2></center>
                     </div>
-                    <form class="main_form">
+
+                    <center>
+                        <div>
+                            <h2>
+                            <ul>
+                                <li><a href="phone:+2348038134969"><img src="{%static 'icon/call.png'%}" />Call Us</a></li>
+                                <li><a href="mailto: sales@hollymab.com"><img src="{%static 'icon/email.png'%}" />Mail Us</a></li>
+                                <li><a href="http://www.google.com/maps/place/6.427296,2.889547"><img src="{%static 'icon/loc.png'%}" /> Live Location</a></li>
+                            </ul>
+                            </h2>
+                        </div>
+</center>
+                    {%if message_name %}
+                    <center>
+                    <h2>Thanks {{message_name}}</h2>
+                    <p>Thanks we have received your message, will respond to you shortly</p><br>
+                    <button class="btn btn-primary"><a href="{%url 'Home'%}" style="color:white">Continue Shopping</a></button>
+                 <br><br>   </center>
+                  {%else%}
+                    <form class="main_form" method="post">
+                        {%csrf_token%}
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="Your name" type="text" name="Your Name">
+                                <input class="form-control" placeholder="Email" type="text" name="message-name">
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="Email" type="text" name="Email">
+                                <input class="form-control" placeholder="Name" type="text" name="message-email">
                             </div>
                             <div class=" col-md-12">
-                                <input class="form-control" placeholder="Phone" type="text" name="Phone">
+                                <input class="form-control" placeholder="Phone" type="text" name="name">
                             </div>
                             <div class="col-md-12">
-                                <textarea class="textarea" placeholder="Message"></textarea>
+                                <textarea name="message" class="textarea" placeholder="message"></textarea>
                             </div>
                             <div class=" col-md-12">
                                 <button class="send">Send</button>
@@ -30,7 +51,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>  {%endif%}
     <!-- end contact -->
 
 <!--    &lt;!&ndash; footer &ndash;&gt;-->

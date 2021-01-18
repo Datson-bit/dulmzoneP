@@ -3,18 +3,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>HollyMab</title>
      <!-- basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- mobile metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="">
     <!-- site metas -->
-    <title>pomato</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>HollyMab</title>
+    <meta name="keywords" content="phone, itel, tecno, samsung, iphone, injoo, xiaomi, hollymab, phones in badagry, ">
+    <meta name="description" content="Buy your phone">
+    <meta name="author" content="HollyMab">
+    <link style="width: 70px" rel="icon" href="{%static 'images/mab.png'%}">
 
 <!--    js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -67,7 +69,7 @@
                         <div class="full">
                             <div class="center-desk">
                                 <div class="logo">
-                                    <a href="{%url 'Home'%}"><img src="{%static 'images/LogoD.png'%}" alt="#"></a>
+                                    <a href="{%url 'Home'%}"><img src="{%static 'images/hollymab.png'%}" alt="#"></a>
                                 </div>
                             </div>
                         </div>
@@ -80,11 +82,12 @@
                                         <li class="active"> <a href="{%url 'Home'%}">Home</a> </li>
                                         <li> <a href="{%url 'About'%}">About</a> </li>
                                         <li><a href="{%url 'products'%}">Products</a></li>
-                                        <li><a href="{%url 'special'%}">Specials</a></li>
+                                        <li><a href="{%url 'staff'%}">Staff</a></li>
                                         <li><a href="{%url 'Contact'%}">Contact Us</a></li>
-                                        <li class="last">
-                                            <a href="#"><img src="{%static 'images/search_icon.png'%}" alt="icon" /></a>
-                                        </li>
+                                        <li><a  href="http://www.google.com/maps/place/6.427296,2.889547" target="_blank"><img src="{%static 'icon/loc.png'%}" />Location</a></li>
+<!--                                        <li class="last">-->
+<!--                                            <a href="#"><img src="{%static 'images/search_icon.png'%}" alt="icon" /></a>-->
+<!--                                        </li>-->
                                     </ul>
                                 </nav>
                             </div>
@@ -93,9 +96,9 @@
                     <div class="col-md-6 offset-md-6">
                         <div class="location_icon_bottum">
                             <ul>
-                                <li><img src="{%static 'icon/call.png'%}" />(+71)9876543109</li>
-                                <li><img src="{%static 'icon/email.png'%}" />demo@gmail.com</li>
-                                <li><img src="{%static 'icon/loc.png'%}" />Location</li>
+                                <li><img src="{%static 'icon/call.png'%}" />(+234)8038134969</li>
+                                <li><img src="{%static 'icon/email.png'%}" />sales@hollymab.com</li>
+                                <li><a href="http://www.google.com/maps/place/6.427296,2.889547"><img src="{%static 'icon/loc.png'%}" />Location</a></li>
                             </ul>
                         </div>
                     </div>
@@ -117,7 +120,7 @@
                         <div class="footer-box">
                             <div class="headinga">
                                 <h3>Address</h3>
-                                <span>Badagry Roundabout, Opposite Polaris Bank plc</span>
+                                <span>HollyMab Global Enterprises Badagry Roundabout, Opposite Polaris Bank plc</span>
 
                             </div>
                             <ul class="location_icon">
@@ -132,7 +135,7 @@
                                     <li> <a href="{%url 'About'%}">About</a></li>
 
                                     <li> <a href="{%url 'products'%}">Products </a></li>
-                                    <li> <a href="{%url 'special'%}">Specials  </a></li>
+                                    <li> <a href="{%url 'staff'%}">staff  </a></li>
                                     <li> <a href="{%url 'Contact'%}"> Contact us</a></li>
                                 </ul>
                             </div>
@@ -163,6 +166,7 @@
     <script src="{%static 'js/owl.carousel.js'%}"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
     <script>
+
         $(document).ready(function() {
             $(".fancybox").fancybox({
                 openEffect: "none",

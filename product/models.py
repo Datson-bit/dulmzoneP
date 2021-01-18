@@ -4,7 +4,7 @@ from django.urls import reverse
 
 
 class Product(models.Model):
-    img = models.FileField(null=True, blank=True, upload_to="images/")
+    img_url = models.CharField(max_length=2083, default="")
     price = models.FloatField()
     name= models.CharField(max_length=50)
 
@@ -14,11 +14,17 @@ class Product(models.Model):
 
 
 class Products(models.Model):
-    img = models.ImageField(null=True, blank=True, upload_to="images/")
+    img_url = models.CharField(max_length=2083, default="")
+    img = models.ImageField(default="", upload_to='images/')
     price = models.FloatField()
     body = RichTextField(blank=True, null=True)
     name = models.CharField(max_length=50)
 
+
     def get_absolute_url(self):
         return reverse('view', args=(str(self.id)))
 
+class Staff(models.Model):
+    name= models.CharField(max_length=100)
+    position= models.CharField(max_length=50)
+    img= models.ImageField(default="", upload_to='images/')

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     {%load static%}
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+    <style>
+        input{
+             height: 30px;
+            padding: 3px;
+            width: 300px;
+            border: 1.6px solid whitesmoke;
+            border-radius: 3px;
+        }
+         #btn{
+            height: 40px;
+            width: 300px;
+            font-size: 15px;
+            border: none;
+            background-color: #2121fd;
+            color:white;
+            border-radius: 5px;
+        }
+
+         #btn1{
+            height: 40px;
+            width: 200px;
+            font-size: 15px;
+            border: none;
+            position: absolute;
+            left:60px;
+            background-color: green;
+            color:white;
+            border-radius: 5px;
+        }
+            div{
+            position: absolute;
+            top: 200px;
+            left: 100px;
+        }
+        h1{
+            font-size: 50px;
+        }
+        h4{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+           form{
+            position: absolute;
+            background-color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 4px rgb(239, 239, 240), 0 3px 6px rgb(236, 236, 236);
+            top: 30%;
+            left: 50%;
+            height: 320px;
+            width: 350px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body class="container" style="background:whitesmoke">
+
+    <div>
+        <h1 style="font-family: Arial, Helvetica, sans-serif; color: blue;">dulmzone</h1>
+        <h4>DatBlog helps you read and connect also share blogs<br/> with the people in your life</h4>
+        </div>
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token%}
+
+{{form.as_p}}
+    <button id="btn">Login</button>
+
+        <hr style="background: gray; border: 0.5px solid rgb(207, 207, 207);">
+    <br><button id="btn1"><a href="{%url 'register'%}" style="color:white">Create New Account</a></button>
+
+</body>
+</html>

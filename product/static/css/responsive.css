@@ -126,6 +126,11 @@
     .mean-container .mean-nav ul li a.mean-expand {
         top: 0;
     }
+
+    .carousel-item #img1{
+        height: 64px;
+    }
+
 }
 @media (min-width: 1200px) and (max-width: 1500px) {
     .about {background: inherit;}

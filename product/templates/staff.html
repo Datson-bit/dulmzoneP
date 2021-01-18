@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+     <div class="brand-bg">
+            <div class="container">
+                <div class="row">
+                {%for employee in employees%}
+                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+                        <div class="brand_box">
+                            <img src="{{employee.img.url}}" alt="img" />
+                            <h3>POST:<strong class="red">{{employee.position}}</strong></h3>
+                            <span>{{employee.name}}</span>
+                        </div></div><br>
+                    {%endfor%}
+</div></div></div>
+{%endblock%}

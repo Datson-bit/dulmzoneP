@@ -1,0 +1,10 @@
+<style>
+			.nav a{
+				color: white;
+			}
+
+			.nav li a:hover {
+				background-color: white; 
+				color: teal;
+			}
+		</style>
