@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 {%block content%}
 {%load static%}
-{%if user.is_authenticated%}
+
 
 <style>
     input{
@@ -11,20 +11,9 @@
      }
 
 </style>
-<!--<center>-->
-<!--    <br><br>-->
-<!--<div class="container"><br><br>-->
-<!--<form method="post" enctype="multipart/form-data">-->
-<!--{%csrf_token%}-->
-<!--    {{form.media}}-->
-<!--    {{form.as_p}}-->
-<!--    <button class="btn btn-secondary">Post</button>-->
-<!--</form>-->
-<!--    {%else%}-->
-<!--    <h1>Ooops! only Admins are allowed</h1>-->
-<!--    {%endif%}-->
-<!--</div>-->
-<!--</center>-->
+
+{%if user.is_authenticated%}
+
 <div class="container"><br><br>
 <form method="post" enctype="multipart/form-data">
     <input type="hidden" name="csrfmiddlewaretoken" value="GV3uhkXdAwUnV14fmPejRac2MpecNqum4TvdjF6La4EC5lgoSgVsVVDAw9m0Qtvg">
@@ -42,5 +31,9 @@
     </form>
 
 </div>
-</center><br>
+</center>
+{%else%}
+<br><br><br><br>
+<h1>Ooops! ONLY ADMINS ARE ALLOWED</h1>
+{%endif%}
 {%endblock%}
