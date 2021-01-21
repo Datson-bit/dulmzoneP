@@ -8,7 +8,6 @@ class Product(models.Model):
     price = models.FloatField()
     name= models.CharField(max_length=50)
 
-
     def get_absolute_url(self):
         return reverse('view1', args=(str(self.id)))
 
@@ -19,9 +18,9 @@ class Products(models.Model):
     body = RichTextField(blank=True, null=True)
     name = models.CharField(max_length=50)
 
-
     def get_absolute_url(self):
         return reverse('view', args=(str(self.id)))
+
 
 class Staff(models.Model):
     name= models.CharField(max_length=100)
