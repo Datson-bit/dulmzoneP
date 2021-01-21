@@ -15,7 +15,6 @@ class Product(models.Model):
 
 class Products(models.Model):
     img_url = models.CharField(max_length=2083, default="")
-    img = models.ImageField(default="", upload_to='images/')
     price = models.FloatField()
     body = RichTextField(blank=True, null=True)
     name = models.CharField(max_length=50)
