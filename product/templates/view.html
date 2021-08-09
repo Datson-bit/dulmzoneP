@@ -1,11 +1,43 @@
+{%extends 'base.html'%}
+{%block content%}
 {%load static%}
 <br><br><br>
-<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
-<div class="container">
-           <div class="box-element">
-                <a class="btn btn-outline-dark" href="{%url 'products'%}" style="border:1px solid black; color:grey">Continue Shopping</a>
-           </div><br>
-<h1>{{products.name}}</h1>
+<div class="row">
+    {%if user.is_authenticated%}
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 margin">
+                            <img src="{{item.img_url}}" height="400px; width:500px">
+                        </div>
+     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+                                     <button class="btn btn-danger"><a style="font-family:sans-serif" href="{{item.get_add_to_cart_url}}"><img src="{%static 'images/cart.png'%}" style="height:30px; width:30px">Add to cart</a> </button>
+                                                        <button class="btn btn-danger"><a style="font-family:sans-serif" href="{{item.get_remove_from_cart_url}}"><img src="{%static 'images/cart.png'%}" style="height:30px; width:30px">Remove from cart</a> </button>
 
-<p>{{products.body|safe}}</p>
-    </div>
+         <h5><b style="color:black">Price:</b></h5>
+            <p>
+         {%if item.discount%}
+             formerly:<strike style="color:red">{{item.price}}</strike>      {{item.discount}}
+            </p>
+                                {%else%}
+             {{item.price}}
+                                {%endif%}
+
+         <h1>{{item.name}}</h1>  <h4>{{item.body|safe}}</h4>                      </div>
+    {%else%}
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 margin">
+                            <img src="{{item.img_url}}" height="400px; width:500px">
+                        </div>
+         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+
+             <h5><b style="color:black">Price:</b></h5>
+            <p>
+         {%if item.discount%}
+             formerly:<strike style="color:red">{{item.price}}</strike>      {{item.discount}}
+            </p>
+                                {%else%}
+             {{item.price}}
+                                {%endif%}
+
+         <h1>{{item.name}}</h1>  <h4>{{item.body|safe}}</h4>                      </div>
+
+</div>
+{%endif%}
+{%endblock%}

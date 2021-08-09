@@ -64,6 +64,20 @@
     </style>
 </head>
 <body class="container" style="background:whitesmoke">
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
 
     <div>
         <h1 style="font-family: Arial, Helvetica, sans-serif; color: red;">Hollymab</h1>

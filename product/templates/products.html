@@ -5,12 +5,7 @@
 {%block content%}
 {%load static%}
 <style>
-    header{
-    display: none;
-    }
-    footer{
-    display:none;
-    }
+
 </style>
 
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
@@ -22,7 +17,6 @@
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
 
 <body class="main-layout" style="background:whitesmoke">
-<button class="btn btn-danger"><a href="{%url 'Home'%}">Back</a></button>
 
 <div class="brand_color">
         <div class="container">
@@ -48,20 +42,23 @@
 
                 <div class="row">
 
-{%for products in object_list%}
+{%for item in object_list%}
 
 
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
                         <div class="brand_box">
-                            <img src="{{products.img_url}}" alt="img" />
-                            <h3>#<strong class="red">{{products.price}}</strong></h3>
-                            <span>{{products.name}}</span>
+                            <img src="{{item.img_url}}" alt="img" />
+                            <h3>#<strong class="red">
+                                {%if item.discount%}
+                                {{item.discount}}
+                                {%else%}
+                                {{item.price}}
+                                {%endif%}
+                            </strong></h3>
+                            <span>{{item.name}}</span>
 
-                                                        <i><img src="{%static 'images/star.png'%}"/></i>
-                        <i><img src="{%static 'images/star.png'%}"/></i>
-                          <i><img src="{%static 'images/star.png'%}"/></i>
-                          <i><img src="{%static 'images/star.png'%}"/></i><br>
-                            <button class="btn btn-primary"><a style="color:white" href="{%url 'view' products.pk%}">View </a></button>
+
+                            <button class="btn btn-primary"><a style="color:white" href="{%url 'view' item.pk%}">View </a></button>
 
                         </div>
                     </div>

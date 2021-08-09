@@ -1,0 +1,72 @@
+{%extends 'base.html'%}
+{%block content%}
+{%load static%}
+<br><br><br>
+
+<div class="container">
+  <div class="table-responsive text-nowrap">
+    <h1>Order Summary</h1>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item Image</th>
+      <th scope="col">Item title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+        <th scope="col">Total Item Price</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {%for order_item in object.items.all%}
+    <tr>
+
+      <th scope="row">{{forloop.counter}}</th>
+      <th><img src="{{order_item.item.img_url}}" style="height:50px; width:50px"></th>
+      <td>{{order_item.item.name}}</td>
+      <td>{{order_item.item.price}}</td>
+      <td><a href="{%url 'remove-single-item-from-cart' order_item.item.pk%}"><img class="mr-2" style="height:20px; width:20px" src="{%static 'images/minus.png'%}"></a>
+        {{order_item.quantity}}
+        <a href="{%url 'add-to-cart' order_item.item.pk%}"><img class="ml-2" src="{%static 'images/plus.png'%}" style="height:10px; width:10px;"></a></td>
+      <td>
+        {%if order_item.item.discount%}
+        #{{order_item.get_total_discount_item_price}}
+        <span class="badge badge-primary">saving #{{order_item.get_amount_saved}}</span>
+        {%else%}
+        #{{order_item.get_total_item_price}}
+        {%endif%}
+        <a href="{%url 'remove-from-cart' order_item.item.pk%}">
+        <img class="float-right" src="{%static 'images/trash.png'%}" style="background-color:red;height:30px; width:30px">
+        </a>
+      </td>
+
+    </tr>
+    {%empty%}
+  <tr>
+    <td colspan="5">Your cart is empty</td>
+  </tr>
+  <tr>
+    <td colspan="5">
+      <a class=" btn btn-primary "style="float:right" href="{%url 'products'%}">Continue Shopping</a>
+    </td>
+  </tr>
+
+  {%endfor%}
+    {%if object.get_total%}
+  <tr>
+    <td colspan="4"><b>Order Total</b></td>
+    <td colspan="5"><b>{{object.get_total}}</b></td>
+  </tr>
+  <tr>
+    <td colspan="5">
+      <a class=" btn btn-warning  ml-2"style="float:right" href="#">Proceed to checkout</a>
+      <a class=" btn btn-primary "style="float:right" href="{%url 'products'%}">Continue Shopping</a>
+    </td>
+  </tr>
+{%endif%}
+
+  </tbody>
+</table></div></div>
+<br><br><br><br>
+{%endblock%}
